@@ -11,7 +11,20 @@
       "name": "DragonBallAPI",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "https://dragonball-api.com/api/characters/10",
+          "protocol": "https",
+          "host": [
+            "dragonball-api",
+            "com"
+          ],
+          "path": [
+            "api",
+            "characters",
+            "10"
+          ]
+        }
       },
       "response": []
     },
@@ -19,7 +32,21 @@
       "name": "CP",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "https://utilidades.vmartinez84.xyz/api/CodigosPostales/04369",
+          "protocol": "https",
+          "host": [
+            "utilidades",
+            "vmartinez84",
+            "xyz"
+          ],
+          "path": [
+            "api",
+            "CodigosPostales",
+            "04369"
+          ]
+        }
       },
       "response": []
     }
