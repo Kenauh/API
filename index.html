@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaje Dragon Ball</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .card { border: 1px solid #ccc; padding: 15px; width: 250px; border-radius: 8px; }
+        img { width: 100%; height: auto; }
+    </style>
+</head>
+
+<body onload="cargarPersonaje()">
+
+    <div id="personajeContainer" class="card">
+        <h2 id="nombre">Cargando...</h2>
+        <img id="foto" src="" alt="">
+        <p><strong>Raza:</strong> <strong id="raza"></strong></p>
+        <p><strong>Ki:</strong> <strong id="ki"></strong></p>
+        <p><strong>Max Ki:</strong> <strong id="maxki"></strong></p>
+    </div>
+
+    <script>
+       
+        async function obtenerPersonaje() {
+            const response = await fetch("https://dragonball-api.com/api/characters/10");
+            const personaje = await response.json();
+            return personaje;
+        }
+
+        async function cargarPersonaje() {
+            const personaje = await obtenerPersonaje();
+
+            //  le doy a cada elemento del html un id para poder asignarle los datos del JSON
+            const nombreTxt = document.getElementById("nombre");
+            const fotoImg = document.getElementById("foto");
+            const razaTxt = document.getElementById("raza");
+            const kiTxt = document.getElementById("ki");
+            const maxki = document.getElementById("maxki");
+
+            // Asignamos los datos del JSON a los del html
+            nombreTxt.textContent = personaje.name;
+            fotoImg.src = personaje.image;
+            fotoImg.alt = personaje.name;
+            razaTxt.textContent = personaje.race;
+            kiTxt.textContent = personaje.ki;
+            maxki.textContent = personaje.maxKi;
+        }
+    </script>
+</body>
+
+</html>
